@@ -1,45 +1,50 @@
-
 import Chart from "react-apexcharts";
 
-const ChartOne= () => {
-
+const ChartFive = () => {
     const state = {
-
-        series: [44, 55,],
+        series: [44, 55],
         options: {
             chart: {
-                width: 380,
                 type: 'pie',
-            },   colors: ['#EED3D9','#B5C0D0'],
-            labels: ['کاربر هایی که پروژه  دارند', 'کاربر هایی که پروژه  ندارند'],
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200
-                    },
-                    legend: {
-                        position: 'bottom',
-                        right:"12",
-                        bottom:"13"
+            },
+            colors: ['#EED3D9', '#B5C0D0'],
+
+
+            labels: ['کاربر هایی که رزومه دارند', 'کاربر هایی که رزومه ندارند'],
+            legend: {
+                position: 'bottom',
+                fontSize: '12px',
+                itemMargin: { horizontal: 8, vertical: 4 }
+            },
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    options: {
+                        chart: { width: '100%' },
+                        legend: { position: 'bottom', fontSize: '11px' }
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    options: {
+                        chart: { width: '100%' },
+                        legend: { position: 'bottom', fontSize: '10px' }
                     }
                 }
-            }]
+            ]
+        }
+    };
 
-    }}
-        return <div>
-
-        <Chart
-            options={state.options}
-            series={state.series}
-            type="pie"
-            width="380"
-
-        />
-            <div id="html-dist"></div>
-
+    return (
+        <div className="w-full flex justify-center p-2">
+            <Chart
+                options={state.options}
+                series={state.series}
+                type="pie"
+                width="100%"
+            />
         </div>
-}
+    );
+};
 
-
-export default ChartOne
+export default ChartFive;
